@@ -1,0 +1,470 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+body, html{
+    font-family: 'Oswald', sans-serif;
+    /* nếu không khai báo thì 
+    1 rem: 16px */
+    /* font-size: 17px; */
+    /* tạo hiệu ứng mượta    */
+    scroll-behavior: smooth;
+}
+
+.section{
+    padding: 100px 0;
+}
+
+.services__title{
+    text-align: center;
+}
+
+.services__title p:first-of-type{
+    font-size: 14px;
+    color: #e62b4a;
+    font-weight: 300;
+}
+.services__title h2{
+    color: white;
+    font-size: 50px;
+    font-weight: 400;
+}
+
+
+.services__title p:last-of-type{
+    font-size: 16px;
+    color: #888888;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.title--black p:first-of-type{
+    color: #888;
+}
+.title--black h2{
+    color: black    ;
+}
+/* HEADER */
+header{
+    /* mặc định khi thêm absolute sẽ mất chiều width  */
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid #e62b4a;
+    /* các thẻ được gán position thì trình duyệt quy định thẻ nào sinh ra sau sẽ có index lớn hơn thẻ sinh trước và sẽ bị đè lên index nhỏ hơn */
+    z-index: 1;
+}
+.header__content li{
+    display: inline;
+    list-style: none;
+    padding: 0 35px;
+}
+
+.header__content a{
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+/* flex or flex box for CS3, ( dễ dùng không có tác dụng như float */
+/* sắp xếp khối nội dung lền cùng 1 hàng */
+/* khai báo flex ở thẻ cha gần nhất của các thẻ con cần sắp xếp */
+.header__content {
+    display: flex ;
+    /* set vị trí nằm ở giữa trang */
+    margin: auto;
+    width: 85%;
+    padding: 20px 0;
+    /* justify-content phải có vùng trống chiều ngang màn hình */
+    justify-content: space-between;
+    /* align-items: canh nội dung theo chiều dọc */
+    align-items: center;
+    /* phải đi cùng với display: flex */
+}
+
+.header__content .header__logo{
+     /* font-size: 1.78rem; */
+     font-size: 32px;
+     text-transform: lowercase;
+}
+
+/*rem: sử dụng trong font-size, chỉ có nội dung fs dùng rem thì margin,padding cũng dùng rem*/
+
+/* CAROUSEL */
+.carousel{
+    background-image: url(../img/home_slider.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 900px;
+
+    display: flex ;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel__content{
+    text-align: center;
+    color: white;
+
+}
+
+.carousel__content p{
+    font-size: 25px;
+}
+
+.carousel__content h1{
+    font-size: 75px;
+    line-height: 90px;
+}
+
+.carousel__content button{
+    margin-top: 20px;
+    padding: 15px 25px;
+    background-color: #e62b4a;
+    border: 1px solid #e62b4a;
+    color: white;
+
+    /* transition
+    transition-property: thuôc tính cần thay đổi
+    transition-duration: khoảng thời gian thay đổi từ từ
+    transition-delay: độ chờ của hiệu ứng chuyển đổi  */
+    
+    transition: all .5s
+}
+
+.carousel__content button:hover {
+    background-color: #af2239;
+}
+
+.carousel__icon i{
+    /* animation-name: bounce;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    /* số lần lặp lại animation */
+    /* animation-iteration-count: infinite; */
+
+    animation: bounce 3s linear infinite 3s;
+}
+
+/* SERVICES */
+.services{
+    background-color: black;
+}
+
+.services__content{
+    width: 85%;
+    margin: 0 auto;
+}
+
+.services__title{
+    text-align: center;
+    color: white;
+}
+
+.services__item{
+    width: 214px;
+    height: 230px;
+    background-color: white;
+    text-align: center;
+    margin: 0 10px;
+}
+
+.services__content .slick-dots li button:before{
+    color: white;
+    font-size: 1rem;
+}
+
+.services__content .slick-dots li.slick-active button:before{
+    color: #e62b4a;
+}
+/* trước hover */
+.services__item::before{
+    /* phải có content mới hiển thị trên UI */
+    content: '';
+    /* tạo hiệu ứng hover */
+    height: 0;
+    width: 5px;
+    background-color: #e62b4a  ;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: all .5s;
+}
+
+.services__item{
+    position: relative;
+}
+
+/* sau hover */
+.services__item:hover::before{
+  height: 100%;
+}
+
+.services__content .services__item{
+    /* C2: cach giữa có từ 2 thẻ con trở lên  */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 20px;
+    color: grey;
+}
+
+.services__content .services__item i{
+    font-size: 50px ;
+}
+
+/* BLOG */
+.blog .title{
+    text-align: center;
+}
+.blog .title h2{
+    line-height: 40px;
+}
+.blog .title p{
+    padding-top: 20px;
+}
+.blog__content{
+    display: grid;
+    /* chỉ cần khai báo cột khi các hàng có kích thước bằng nhau */
+    /* grid-template-columns: 25% 25% 25% 25%; */
+    /* grid-template-columns: 100px 200px 300px 400px;
+    fr: đơn vị kích thước dùng cho grid system */
+    /* repeat (4,1fr): mỗi cột sẽ có kích thước 1/4*/
+    grid-template-columns: repeat(4,1fr);
+    /* khi các hàng có kích thước khác nhau */
+    /* grid-template-rows: ; */
+
+    /* có thể dùng padding để thêm khoảng cách but riêng gird có thuộc tính gap giúp canh khoảng cách giữa các mặt tiếp xúc  */
+    gap: 30px;
+
+    /* canh nội dung chính */
+    width: 85%;
+    margin: auto;
+}
+
+.blog__item1{
+    /* c1: đường bắt đầu / đường kết thúc  */
+    grid-column: 1 / 3;
+    /* c2: đường bắt đầu / span số cột cần chiếm  */
+    /* grid-column: 1 / span 2; */
+    grid-row: 1 / 3;
+}
+
+.blog__item10{
+    grid-column: 3 / 5;
+    grid-row: 3 / 5;
+}
+
+.blog__item img{
+    width: 100%;
+    height: 100%;
+    /* giúp tấm hình canh đều */
+    object-fit: cover;
+
+    /* img: object-fit
+    background: background-size */
+
+/* khi nào dùng img hoạc background */
+/* img: phạm vi sử dụng hình ảnh nhỏ (cần seo, nhờ thuộc tính alt), lưu trữ BE */
+/* background-image: phạm vi sử dụng lớ, công dụng để làm đẹp trang web, không cần SEO */
+    /* lớp nền của ảnh  */
+    filter: grayscale(50%) contrast(50%);
+}
+
+.blog__item {
+    position: relative;
+    /* che đi phần nội dung con tràn ra bên ngoài của thẻ cha  */
+    overflow: hidden;
+}
+/* trước hover  */
+.blog__overlay{
+    background-color:rgba(230, 43, 74, 0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    color: white;
+    right: 0;
+    top: 0;
+    opacity: 0;
+
+}
+/* sau hover */
+.blog__overlay:hover{
+    opacity: 1
+}
+
+/* trước hover */
+.blog__icon{
+    position: absolute;
+    background-color: white;
+    text-align: center;
+    line-height: 35px;
+    width: 35px;
+    height: 35px;
+    top: 30px;
+    right: 30px;
+    transform: translateY(20px);
+    transition: all .5s;
+
+}
+
+/* sau hover */
+/* thẻ cha nhận hover, thẻ con thay đổi */
+.blog__item:hover .blog__icon{
+    transform: translateY(0);
+}
+
+/* trước hover */
+.blog__text{
+    position: absolute;
+    left: 30px;
+    bottom: 30px;
+    transform: translateY(20px);
+    transition: all .5s;
+}
+
+/* sau hover */
+/* thẻ cha nhận hover, thẻ con thay đổi */
+.blog__item:hover .blog__text{
+    transform: translateY(0);
+}
+
+/* NUMBER */
+.number{
+    background-color: black;
+}
+
+.number__content{
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    color: white;
+    text-align: center;
+    /* space-between: chia đều các thẻ */
+    justify-content: space-between;
+}
+/* tìm loại thẻ p đầu tiên trong number__item */
+.number__item p:first-of-type{
+   font-size: 3rem;
+}
+/* tìm loại thẻ p cuối cùng trong number__item */
+.number__item p:last-of-type{
+font-size: 1.5rem;
+}
+/* tìm loại thẻ p theo số trong number__item ( sử dụng từ 3 item trở lên*/
+/* .number__item p:nth-of-type() */
+
+/* xử lí việc chuyển động của chữ làm cho kích thước mỗi thẻ bằng nhau */
+.number__item{
+    width: 25%;
+}
+
+
+/* Experiences */
+.experience{
+    background-image: url(../img/bussiness_img_1.jpg );
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /* làm hình đứng yên */
+    background-attachment: fixed;
+    padding-bottom: 50px;
+}
+
+.exp__content{
+    width: 85%;
+    margin: 20px auto 0 auto;
+}
+
+.exp__content video{
+    width: 100%;
+}
+
+/* CONTACT */
+
+.contact__title h2{
+    color: black;
+}
+
+.contact__content{
+    width: 85%;
+    margin: 20px auto 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+}
+
+.contact__map{
+    width: 100%;
+    height: 400px;
+}
+
+.contact__form{
+    display: flex;
+    flex-direction: column;
+}
+
+.contact__form input, .contact__form textarea{
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.contact__content button{
+    background-color: black;
+    color: white;
+    font-size: 25px;
+    padding: 15px ;
+    /* chữ viết hoa */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+    transition: all .5s;
+}
+
+.contact__content button:hover{
+    background-color: #e62b4a;
+}
+
+.back-to-top{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+}
+
+.back-to-top i{
+    color: white;
+    font-size: 20px;
+}
+
+
+@keyframes bounce{
+    0%{
+        transform: translateY(0);
+        opacity: 0;
+    }
+    50%{
+        transform: translateY(100px);
+        opacity: 1;
+    }
+    80%{
+        transform: translateY(50px);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(100px);
+        opacity: 1;
+    }
+}
